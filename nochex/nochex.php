@@ -24,7 +24,7 @@ class nochex extends PaymentModule
 	{
 		$this->name = 'nochex';
 		$this->tab = 'payments_gateways';
-       $this->controllers = array('payment', 'validation');
+       		$this->controllers = array('payment', 'validation');
 		$this->author = 'Nochex';
 		$this->version = 3.0;
 		$this->ps_versions_compliancy = array('min' => '1.7.1.0', 'max' => _PS_VERSION_);
@@ -54,7 +54,7 @@ class nochex extends PaymentModule
 		
 		
 		$this->page = basename(__FILE__, '.php');
-		$this->displayName = $this->l('Nochex APC Module') . "<style>.module-logo-thumb-grid, [data-author='Nochex'] img{min-height:30px;min-width:116px;max-width:auto!important;max-height:auto!important} [data-author='Nochex'][data-active='1'] img{min-height:initial;min-width:initial;}</style>";
+		$this->displayName = $this->l('Nochex APC Module');
 		$this->description = $this->l('Accept payments by Nochex');
 		$this->confirmUninstall = $this->l('Are you sure you want to delete your details?');
 		if (!isset($this->email))
