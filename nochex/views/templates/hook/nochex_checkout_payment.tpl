@@ -49,7 +49,7 @@ function subForm(){
 <p class="payment_module">
 	<a href="javascript:void(0)" title="{l s='Pay with Nochex' mod='nochex'}">
 		
-			<img src="https://www.nochex.com/logobase-secure-images/logobase-banners/clear-amex-mp.png" style="height:100px;">&nbsp;
+			<img src="https://www.nochex.com/logobase-secure-images/logobase-banners/clear-mp.png" style="height:100px;">&nbsp;
 		
 	</a>
 </p>

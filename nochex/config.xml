@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <module>
     <name>nochex</name>
-    <displayName><![CDATA[Nochex APC Module&lt;style&gt;.module-logo-thumb-grid, [data-author=&#039;Nochex&#039;] img{min-height:30px;min-width:116px;max-width:auto!important;max-height:auto!important} [data-author=&#039;Nochex&#039;][data-active=&#039;1&#039;] img{min-height:initial;min-width:initial;}&lt;/style&gt;]]></displayName>
+    <displayName><![CDATA[Nochex APC Module]]></displayName>
     <version><![CDATA[3]]></version>
     <description><![CDATA[Accept payments by Nochex]]></description>
     <author><![CDATA[Nochex]]></author>
