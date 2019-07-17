@@ -13,6 +13,12 @@ Visit our Knowledgebase for support: https://support.nochex.com/
 Changelog
 ============
 
+1.3
+----------
+
+* Updated Nochex Cards
+* Bug fix on payment form for the description
+
 1.2
 ----------
 
