@@ -1,5 +1,5 @@
 {*
-* 2007-2015 PrestaShop
+* 2007-2019 PrestaShop
 *
 * NOTICE OF LICENSE
 *
@@ -17,16 +17,20 @@
 * versions in the future. If you wish to customize PrestaShop for your
 * needs please refer to http://www.prestashop.com for more information.
 *
-*  @author PrestaShop SA <contact@prestashop.com>
-*  @copyright  2007-2015 PrestaShop SA
-*  @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
-*  International Registered Trademark & Property of PrestaShop SA
-*}
-<h2>{l s='Order history'}</h2>
+*  @author Nochex
+*  @copyright 2007-2019 Nochex
+*  @license http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+*  Plugin Name: Nochex Payment Gateway for Prestashop 1.7
+*  Description: Accept Nochex Payments, orders are updated using APC.
+*  Version: 3.0.1
+*  License: GPL2
+*
+}
+<h2>{l s='Order history' mod='nochex'}</h2>
 
-<p>Your Order Number <a href="{$base_dir_ssl}order-detail.php?id_order={$nochexorder}">{$nochexorder}</a> has been processed and payment has been accepted via Nochex.</p>
+<p>Your Order Number <a href="{$base_dir_ssl|escape:'htmlall':'UTF-8'}order-detail.php?id_order={$nochexorder|escape:'htmlall':'UTF-8'}">{$nochexorder|escape:'htmlall':'UTF-8'}</a> has been processed and payment has been accepted via Nochex.</p>
 
 <p>Your order will be dispatched within 24 hours.</p>
 
-<p>Thank you for choosing {$shop_name}</p>
-<p>{l s='For any questions or for further information, please contact our' mod='NoChex'} <a href="{$base_dir_ssl}contact-form.php">{l s='customer support' mod='NoChex'}</a></p>
+<p>Thank you for choosing {$shop_name|escape:'htmlall':'UTF-8'}</p>
+<p>{l s='For any questions or for further information, please contact our' mod='nochex'} <a href="{$base_dir_ssl|escape:'htmlall':'UTF-8'}contact-form.php">{l s='customer support' mod='nochex'}</a></p>
