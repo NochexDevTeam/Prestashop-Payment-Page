@@ -143,7 +143,7 @@ class Nochex extends PaymentModule
 
     private function displayNoChex()
     {
-        $this->html .= '<img src="https://www.nochex.com/logobase-secure-images/logobase-banners/clear-amex-mp.png" 
+        $this->html .= '<img src="https://www.nochex.com/logobase-secure-images/logobase-banners/clear-mp.png" 
         height="100px" style="float:left; margin-right:15px;"><br style="clear:both;"/><br style="clear:both;"/><b>'.
         $this->l('This module allows you to accept payments by Nochex (APC Method).').'</b><br /><br />
         '.$this->l('If the client chooses this payment mode, the order will change 
