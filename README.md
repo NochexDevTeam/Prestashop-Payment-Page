@@ -16,7 +16,9 @@ Changelog
 1.4
 ---------
 
-* Module Update
+Module Update
+------
+
 * Update to the payment form in relation to the urls that are generated.
 * APC and Callback update as orders were not being updated
 * Bug fixes
