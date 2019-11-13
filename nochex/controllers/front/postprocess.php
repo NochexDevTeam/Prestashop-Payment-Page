@@ -138,14 +138,10 @@ class NochexPostProcessModuleFrontController extends ModuleFrontController
             'optional_1' => $cart->secure_key,
             'optional_2' => $optional2,
             'merchant_id' => $apc_email,
-            'successurl' => 'https://'.htmlspecialchars($_SERVER['HTTP_HOST'], ENT_COMPAT, 'UTF-8')
-            .__PS_BASE_URI__.'index.php?controller=order-confirmation&id_cart='.(int)$cart->id.
-            '&id_module='.$this->module->id.'&key='.$cart->secure_key,
-            'cancelurl' => 'https://'.htmlspecialchars($_SERVER['HTTP_HOST'], ENT_COMPAT, 'UTF-8')
-            .__PS_BASE_URI__.'index.php?controller=order',
+            'successurl' => $contextLink->getPageLink('order-confirmation', true, null, array('id_cart' => (int)$cart->id, 'key' => $cart->secure_key, 'id_module' => $this->module->id)),
+            'cancelurl' => $contextLink->getPageLink('order', true, null, array('step' => '3')),
             'postage' => $disPostage,
-            'responderurl' => 'https://'.htmlspecialchars($_SERVER['HTTP_HOST'], ENT_COMPAT, 'UTF-8')
-            .__PS_BASE_URI__.'index.php?fc=module&module=nochex&controller=validation',
+            'responderurl' => $contextLink->getModuleLink( 'nochexapc', 'validation', array('id_cart' => (int)$cart->id, 'key' => $cart->secure_key), true ),
             'test_transaction' => $testMode,
         ));
         $this->setTemplate('module:nochex/views/templates/hook/nochex_checkout_payment.tpl');
