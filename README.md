@@ -13,6 +13,14 @@ Visit our Knowledgebase for support: https://support.nochex.com/
 Changelog
 ============
 
+1.4
+---------
+
+* Module Update
+* Update to the payment form in relation to the urls that are generated.
+* APC and Callback update as orders were not being updated
+* Bug fixes
+
 1.3
 ----------
 
