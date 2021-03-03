@@ -13,6 +13,11 @@ Visit our Knowledgebase for support: https://support.nochex.com/
 Changelog
 ============
 
+1.4
+---------
+
+* Module fixes in relation to Prestashop 1.7.7.2
+
 1.3
 ----------
 
