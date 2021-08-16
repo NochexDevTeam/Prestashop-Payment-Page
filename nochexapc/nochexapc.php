@@ -320,7 +320,7 @@ class NochexApc extends PaymentModule
     public function hookPaymentOptions($params)
     {
         $newOption = new PaymentOption();
-        $newOption->setLogo(Media::getMediaPath(_PS_MODULE_DIR_.$this->name.'/views/img/clear-mp.png'))
+        $newOption->setLogo(Media::getMediaPath(_PS_MODULE_DIR_.$this->name.'/views/img/clear.png'))
                   ->setAction($this->context->link->getModuleLink($this->name, 'postprocess', [], true));
         return [$newOption];
     }
