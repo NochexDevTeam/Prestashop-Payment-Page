@@ -46,11 +46,34 @@ class NochexApcValidationModuleFrontController extends ModuleFrontController
         if ($nochexapc->module_key == $this->context->controller->module->module_key) {
             if (Tools::getValue('order_id')) {
 			
-					$work_string = http_build_query($_POST); 
-					 
-					if (Tools::getValue('optional_2') == "callback") {
+		    $cart2 = new Cart((int)Tools::getValue('order_id'));
+		    
+		    if (number_format($cart2->getOrderTotal(true, 3), 2, '.', '') <> Tools::getValue('amount')) {
+			
+			if (Tools::getValue('optional_1')) {
+                            $custom = Tools::getValue('optional_1');
+                        } else {
+                            $custom = 0;
+                        }
 						
-						$url = "https://secure.nochex.com/callback/callback.aspx";
+			$extras = array("transaction_id" => $transaction_id);				
+			PrestaShopLogger::addLog(
+                            'Order total and Paid total, do not match!!',
+                            3,
+                            null,
+                            'nochexapc - validation',
+                            0,
+                            true
+                        ); 						
+				$this->module->validateOrder((int)Tools::getValue("order_id"),(int)Configuration::get('PS_OS_ERROR'),Tools::getValue("amount"),$nochexapc->displayName,"Issue - Amounts mismatch",$extras,Tools::getValue('curr'),false,$custom);
+			}
+		    
+			$work_string = http_build_query($_POST); 
+					 
+			if (Tools::getValue('optional_2') == "callback") {
+						
+			$url = "https://secure.nochex.com/callback/callback.aspx";
+				
                         $ch = curl_init();
                         curl_setopt($ch, CURLOPT_URL, $url);
                         curl_setopt($ch, CURLOPT_POST, true);
