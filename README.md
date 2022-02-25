@@ -10,7 +10,7 @@ Support
 Bug fixes and feature patches may be submitted using github pull requests, and bug reports or feature requests as github issues.
 Visit our Knowledgebase for support: https://support.nochex.com/  
 
-Changelog
+Changelog - Tested up to Prestashop 1.7.8.3
 ============
 
 1.4
