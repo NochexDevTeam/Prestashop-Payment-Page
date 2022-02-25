@@ -1,4 +1,4 @@
-Nochex Module for Prestashop 1.7.x
+Nochex Module for Prestashop 1.7 - Tested up to Prestashop 1.7.8.3
 ============
 
 Installation
@@ -10,7 +10,7 @@ Support
 Bug fixes and feature patches may be submitted using github pull requests, and bug reports or feature requests as github issues.
 Visit our Knowledgebase for support: https://support.nochex.com/  
 
-Changelog - Tested up to Prestashop 1.7.8.3
+Changelog
 ============
 
 1.4
