@@ -1,5 +1,6 @@
-Nochex Module for Prestashop 1.7 - Tested up to Prestashop 1.7.8.3
+Nochex Module for Prestashop 1.7 
 ============
+Tested up to Prestashop 1.7.8.7
 
 Installation
 ============
