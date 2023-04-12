@@ -23,7 +23,7 @@
 *  @license http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
 *  Plugin Name: Nochex Payment Gateway for Prestashop 1.7
 *  Description: Accept Nochex Payments, orders are updated using APC.
-*  Version: 3.0.4
+*  Version: 1.7.2
 *  License: GPL2
 *
 */
