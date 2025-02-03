@@ -23,7 +23,7 @@
 *  @license http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
 *  Plugin Name: Nochex Payment Gateway for Prestashop 1.7
 *  Description: Accept Nochex Payments, orders are updated using APC.
-*  Version: 3.0.4
+*  Version: 1.7.4
 *  License: GPL2
 *
 */
@@ -50,29 +50,36 @@ class NochexApcValidationModuleFrontController extends ModuleFrontController
 		    
 		    if (number_format($cart2->getOrderTotal(true, 3), 2, '.', '') <> Tools::getValue('amount')) {
 			
-			if (Tools::getValue('optional_1')) {
+						if (Tools::getValue('optional_1')) {
                             $custom = Tools::getValue('optional_1');
                         } else {
-                            $custom = 0;
+                            if (Tools::getValue('custom')) {
+								$custom = Tools::getValue('custom');
+							} else {
+								$custom = 0;
+							}
                         }
 						
-			$extras = array("transaction_id" => $transaction_id);				
-			PrestaShopLogger::addLog(
-                            'Order total and Paid total, do not match!!',
-                            3,
-                            null,
-                            'nochexapc - validation',
-                            0,
-                            true
-                        ); 						
+                        if (Tools::getValue('transaction_id')) {
+                            $transaction_id = Tools::getValue('transaction_id');
+                        } else {
+                            $transaction_id = 0;
+                        }
+						
+					$extras = array("transaction_id" => $transaction_id);				
+		
+				
+                PrestaShopLogger::addLog('PaymentModule::validateOrder - difference in ordered and paid amounts', (int)Configuration::get('PS_OS_ERROR'), null, 'Order', (int)Tools::getValue("order_id"), true);
+		
 				$this->module->validateOrder((int)Tools::getValue("order_id"),(int)Configuration::get('PS_OS_ERROR'),Tools::getValue("amount"),$nochexapc->displayName,"Issue - Amounts mismatch",$extras,Tools::getValue('curr'),false,$custom);
+                					   
 			}
 		    
 			$work_string = http_build_query($_POST); 
 					 
 			if (Tools::getValue('optional_2') == "callback") {
 						
-			$url = "https://secure.nochex.com/callback/callback.aspx";
+						$url = "https://secure.nochex.com/callback/callback.aspx";
 				
                         $ch = curl_init();
                         curl_setopt($ch, CURLOPT_URL, $url);
@@ -103,14 +110,17 @@ class NochexApcValidationModuleFrontController extends ModuleFrontController
                         } else {
                             $custom = 0;
                         }
-                        $extras = array("transaction_id" => $transaction_id);
+                        
+						$extras = array("transaction_id" => $transaction_id);
+						
                         if ($response=="AUTHORISED") {
                             $apc = "AUTHORISED";
                         } else {
                             $apc = "DECLINED";
                         }
-                        $responses = "Payment Accepted - Callback was ". $apc .
-                        ". Transaction Status - ".$testStatus;
+						
+                        $responses = "Payment Accepted - Callback was ". $apc . ". Transaction Status - ".$testStatus;
+						
                         $nochexapc->validateOrder(
                             (int)Tools::getValue("order_id"),
                             Configuration::get('PS_OS_PAYMENT'),
@@ -168,36 +178,21 @@ class NochexApcValidationModuleFrontController extends ModuleFrontController
                        $this->module->validateOrder((int)Tools::getValue("order_id"),(int)Configuration::get('PS_OS_PAYMENT'),Tools::getValue("amount"),$nochexapc->displayName,$responses,$extras,Tools::getValue('curr'),false,$custom);
 					   
 					    } else {
-                        PrestaShopLogger::addLog(
-                            'Secure Keys do not match!!',
-                            3,
-                            null,
-                            'nochexapc - validation',
-                            0,
-                            true
-                        ); 
+						
+						PrestaShopLogger::addLog('Secure Keys do not match!!', (int)Configuration::get('PS_OS_ERROR'), null, 'Order', (int)Tools::getValue("order_id"), true);
+						
                     }
                 } 
 	
 	            } else {
-                PrestaShopLogger::addLog(
-                    'Order not present!!',
-                    3,
-                    null,
-                    'nochexapc - validation',
-                    0,
-                    true
-                ); 
+				
+                PrestaShopLogger::addLog('Order not present!!', (int)Configuration::get('PS_OS_ERROR'), null, 'Order', (int)Tools::getValue("order_id"), true);
+				
             }
         } else {
-            PrestaShopLogger::addLog(
-                'Issue with module keys not matching!!',
-                3,
-                null,
-                'nochexapc',
-                0,
-                true
-            ); 
+		
+            PrestaShopLogger::addLog('Issue with module keys not matching!!', (int)Configuration::get('PS_OS_ERROR'), null, 'Order', (int)Tools::getValue("order_id"), true);
+			
         }
 	
 	}
