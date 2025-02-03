@@ -1,8 +1,8 @@
-Nochex Module for Prestashop 1.7 & 8.1.1
+Nochex Module for Prestashop 1.7 & 8.2
 ============
-Tested up to Prestashop 1.7.8.7 amd 8.1.1
+Tested up to Prestashop 1.7.8.7 amd 8.2
 
-Installation
+Installation+
 ============
 To Install and Setup the Nochex module please follow our integration guide, which can be found <a href="https://support.nochex.com/kb/faq.php?id=148">here</a>
 
@@ -14,6 +14,11 @@ Visit our Knowledgebase for support: https://support.nochex.com/
 Changelog
 ============
 
+1.7.3
+---------
+
+* Small change to APC / Callback page in relation to Prestashop 8.2.0
+  
 1.7.2
 ---------
 
