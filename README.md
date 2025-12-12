@@ -1,6 +1,6 @@
-Nochex Module for Prestashop 1.7 & 8.2
+Nochex Module for Prestashop 1.7, 8.2 & 9.0.2
 ============
-Tested up to Prestashop 1.7.8.7 amd 8.2
+Tested up to Prestashop 1.7.8.7, 8.2 and 9.0.2
 
 Installation+
 ============
@@ -17,7 +17,7 @@ Changelog
 1.7.3
 ---------
 
-* Small change to APC / Callback page in relation to Prestashop 8.2.0
+* Small change to APC / Callback page in relation to Prestashop 8.2.0 / 9.0.2
   
 1.7.2
 ---------
