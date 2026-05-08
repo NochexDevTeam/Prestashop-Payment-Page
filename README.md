@@ -14,6 +14,10 @@ Visit our Knowledgebase for support: https://support.nochex.com/
 Changelog
 ============
 
+1.7.4
+---------
+* small update to form fields
+
 1.7.3
 ---------
 
